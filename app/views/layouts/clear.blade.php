@@ -60,6 +60,8 @@ License: You must have a valid license purchased only from themeforest(the above
             </h3>
         </div>
         <div class="content">
+            {{ Flash::get() }}
+            
             @yield('content')
         </div>
 

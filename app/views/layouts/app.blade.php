@@ -19,6 +19,9 @@
         <link href="{{ url('plugins/bootstrap/css/bootstrap.min.css') }} " rel="stylesheet" type="text/css" />
         <link href="{{ url('plugins/uniform/css/uniform.default.css') }} " rel="stylesheet" type="text/css" />
         <link href="{{ url('plugins/bootstrap-switch/css/bootstrap-switch.min.css') }} " rel="stylesheet" type="text/css" />
+        <link href="{{ url('plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }} " rel="stylesheet" type="text/css" />
+        <link href="{{ url('plugins/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ url('plugins/select2/css/select2-bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- END GLOBAL MANDATORY STYLES -->
         <!-- BEGIN THEME GLOBAL STYLES -->
         <link href="{{url('css/components-md.min.css') }}" rel="stylesheet" id="style_components" type="text/css" />
@@ -27,7 +30,7 @@
         <!-- BEGIN THEME LAYOUT STYLES -->
         <link href="{{url('css/layout.min.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{url('css/themes/light.min.css') }}" rel="stylesheet" type="text/css" id="style_color" />
-        <link href="{{url('css/custom.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{url('css/custom.css') }}" rel="stylesheet" type="text/css" />
         <!-- END THEME LAYOUT STYLES -->
         <link rel="shortcut icon" href="favicon.ico" />
         
@@ -69,18 +72,18 @@
 						<ul class="nav navbar-nav pull-right">
 							<li class="dropdown dropdown-user dropdown-dark">
                                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                    <span class="username username-hide-on-mobile"> Nick </span>
+                                    <span class="username username-hide-on-mobile"> {{ Auth::user()->name }} </span>
                                     <!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->
-                                    <img alt="" class="img-circle" src="{{ url('img/avatar9.jpg') }}" />
+                                    <img alt="" class="img-circle" src="{{ AppHelpers::getImageUrl(Auth::user()->featuredImage,40,40) }}" />
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-default">
                                     <li>
-                                        <a href="page_user_profile_1.html">
+                                        <a href="{{ url('/') }}">
                                             <i class="icon-user"></i> My Profile </a>
                                     </li>
                                     <li class="divider"> </li>
                                     <li>
-                                        <a href="page_user_login_1.html">
+                                        <a href="{{ url('/logout') }}">
                                             <i class="icon-key"></i> Log Out </a>
                                     </li>
                                 </ul>
@@ -96,13 +99,17 @@
 
 		<div class="page-container">
             
+            @if(Auth::user()->role == 1)
+
             @include('layouts.sidebar')
+
+            @endif
 
             <!-- BEGIN CONTENT -->
             <div class="page-content-wrapper">
 
-            	<div class="page-content">
-                    
+            	<div class="page-content {{ Auth::user()->role == 0? 'user-page':'' }}">
+                    {{ Flash::get() }}
                     @yield('content')
 
             	</div>
@@ -120,6 +127,8 @@
         <script src="{{ url('plugins/jquery.blockui.min.js') }}" type="text/javascript"></script>
         <script src="{{ url('plugins/uniform/jquery.uniform.min.js') }}" type="text/javascript"></script>
         <script src="{{ url('plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}" type="text/javascript"></script>
+        <script src="{{ url('plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}" type="text/javascript"></script>
+        <script src="{{ url('plugins/select2/js/select2.full.min.js') }}" type="text/javascript"></script>
         <!-- END CORE PLUGINS -->
         <!-- BEGIN THEME GLOBAL SCRIPTS -->
         <script src="{{ url('scripts/app.min.js') }}" type="text/javascript"></script>
@@ -129,6 +138,8 @@
         <script src="{{ url('scripts/demo.min.js') }}" type="text/javascript"></script>
         {{-- <script src="../assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script> --}}
         
+        <script src="{{ url('scripts/script.js') }}"></script>
+
         @yield('footer')
 
     </body>

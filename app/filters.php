@@ -88,3 +88,13 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+Validator::extend('belongsToUser', function($attribute, $value, $parameters)
+{
+    $model = Bank::find($value);
+    if(!$model){
+    	return false;
+    }
+
+    return Auth::user()->id == $model->user_id;
+});

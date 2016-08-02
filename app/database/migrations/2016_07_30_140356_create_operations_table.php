@@ -21,7 +21,7 @@ class CreateOperationsTable extends Migration {
 			$table->double('user_balance_before')->default(0);
 			
 			$table->integer('type')->default(0);
-			$table->integer('value')->default(0);
+			$table->double('value')->default(0);
 			$table->timestamps();
 		});
 	}

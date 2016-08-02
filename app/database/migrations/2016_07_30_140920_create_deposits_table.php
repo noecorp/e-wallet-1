@@ -12,7 +12,9 @@ class CreateDepositsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('deposits', function(Blueprint $table)
+		#used to save the related bank of deposits and withdrawals operations
+		
+		Schema::create('bank_operation', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->integer('operation_id')->index();
@@ -28,7 +30,7 @@ class CreateDepositsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('deposits');
+		Schema::drop('bank_operation');
 	}
 
 }

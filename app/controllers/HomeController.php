@@ -15,9 +15,39 @@ class HomeController extends BaseController {
 	|
 	*/
 
-	public function showWelcome()
+	public function index($id = null)
 	{
-		return View::make('hello');
+		
+		if(Auth::check()){
+			$user = $this->getUser($id);
+			if(!$user){
+				App::abort(404);
+			}
+			$start_date = date('Y-m-01 00:00:00');
+			$end_date = date('Y-m-t 23:59:59');
+
+			$models = $user->operations()->where('user_id',$user->id)->where('created_at','>=',$start_date)->where('created_at','<=',$end_date)->orderBy('created_at','desc')->get();;
+			return View::make('profile.index',[
+				'title' => "Dashbaord",
+				'user'=>$user,
+				'models' => $models
+			]);
+		}
+
+		return View::make('home',['title'=>'Home Page']);
+	}
+
+	public function settings($id = null){
+		$user = $this->getUser($id);
+		return View::make('profile.account-settings',['title' => 'Account Settings','user'=>$user]);
+	}
+
+	public function getUser($id){
+							# if not is admin then show the user his profile even if $id is set
+		if(is_null($id) || ( !is_null($id) && Auth::user()->role == 0 ) ){
+			$id = Auth::user()->id;
+		}
+		return User::find($id);
 	}
 
 }
