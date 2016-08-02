@@ -1,4 +1,7 @@
 /* here you can put your own css to customize and override the theme */
+.home{
+	font-family: 'Lato', sans-serif !important;
+}
 .page-content{
 	padding-top: 0 !important;
 }
@@ -50,4 +53,176 @@
 }
 .tile-text .value{
 	line-height: 40px;
+}
+
+.home-navbar{
+	background-color:#fff;
+	margin-bottom: 0;
+}
+.font-lobster{
+	font-family: 'Lobster', cursive;
+}
+.home-navbar .navbar-brand{
+	font-family: 'Lobster', cursive;
+}
+.home-navbar .navbar-brand {
+	color:#000;
+	font-size: 30px;
+}
+
+.navbar-toggle{
+	color:#000 !important;
+}
+.navbar-toggle .icon-bar{
+	background-color: #000 !important; 
+}
+
+.big-tile{
+	position: relative;
+	display: block;
+}
+
+.red-gradient{
+	background: #403A3E; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #403A3E , #BE5869); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #403A3E , #BE5869); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.pink-gradient{
+	background: #B24592; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #B24592 , #F15F79); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #B24592 , #F15F79); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.purple-gradient{
+	background: #6a3093; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #6a3093 , #a044ff); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #6a3093 , #a044ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.virgin-america-gradient{
+	background: #7b4397; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #7b4397 , #dc2430); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #7b4397 , #dc2430); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.big-tile .caption{
+	position: absolute;
+	top: 50%;
+	left:50%;
+
+	display: block;
+	text-align: center;
+	color:#fff;
+
+	-webkit-transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	-o-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+}
+
+.big-tile .caption .big-logo{
+	font-size: 50px;
+	font-family: 'Lobster', cursive;
+}
+.big-tile .caption p{
+	font-size: 20px;
+}
+
+.big-tile .caption .caption-btn{
+	font-size: 20px;
+	padding:10px 20px;
+	border:1px solid #fff;
+
+	margin-top:20px;
+	color:#fff;
+
+	-webkit-border-radius:4px;
+	border-radius:4px;
+
+	-webkit-transition: all ease-in-out 0.3s; 
+	-moz-transition: all ease-in-out 0.3s; 
+	-ms-transition: all ease-in-out 0.3s; 
+	-o-transition: all ease-in-out 0.3s; 
+	transition: all ease-in-out 0.3s; 
+}
+
+.big-tile .caption .caption-btn:hover{
+	color: #B85667;
+	background: #fff;
+}
+
+.big-tile .caption .caption-btn:hover,.big-tile .caption .caption-btn:focus,.big-tile .caption .caption-btn:visited{
+	text-decoration: none;
+}
+
+.section{
+	padding-top:50px;
+	padding-bottom:50px;
+
+	text-align: center;
+}
+.section .section-title{
+	color: #B85667;
+
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+
+.icon-box{
+	padding-top:15px;
+	padding-bottom:15px;
+
+	background: transparent;
+}
+
+
+.icon-box:hover .box-icon{
+	-webkit-transform: rotate(360deg);
+	-moz-transform: rotate(360deg);
+	-ms-transform: rotate(360deg);
+	transform: rotate(360deg);
+}
+
+.icon-box .box-icon{
+	font-size: 35px;
+	width: 125px;
+	height: 125px;
+	line-height: 125px;
+
+	display: inline-block;
+	border: 1px solid #B85667;
+
+	-webkit-border-radius: 100%;
+	border-radius: 100%;
+
+	color: #B85667;
+
+	float: left;
+
+	-webkit-transition: all ease-in-out 0.3s; 
+	-moz-transition: all ease-in-out 0.3s; 
+	-ms-transition: all ease-in-out 0.3s; 
+	-o-transition: all ease-in-out 0.3s; 
+	transition: all ease-in-out 0.3s; 
+}
+.icon-box .box-title{
+	text-align: left;
+	margin-top: 0;
+}
+.icon-box .box-description{
+	text-align: justify;
+}
+
+.box-content{
+	padding-left: 140px 
+}
+
+.home footer{
+	background: #2e2e2e;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	color:#fff;
+	font-size: 16px;
 }
