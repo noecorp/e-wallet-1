@@ -1,9 +1,13 @@
-<form class="register-form" action="{{ url('/signup') }}" method="post" enctype="multipart/form-data">
+@extends('layouts.clear')
+
+@section('content')
+
+<form class="col-md-6 col-md-offset-3" style="margin-bottom: 150px;" action="{{ url('/signup') }}" method="post" enctype="multipart/form-data">
         
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
     <div class="form-title">
-        <span class="form-title">Sign Up</span>
+        <h3 class="form-title">Sign Up</h3>
     </div>
     <p class="hint"> Enter your personal details below: </p>
     <div class="form-group">
@@ -20,11 +24,6 @@
     <div class="form-group">
         <label class="control-label visible-ie8 visible-ie9">Phone</label>
         <input class="form-control placeholder-no-fix" type="text" placeholder="Phone" name="phone" />
-    </div>
-
-    <div class="form-group">
-        <label class="control-label visible-ie8 visible-ie9">Phone</label>
-        <input class="form-control placeholder-no-fix" type="file" name="image" />
     </div>
     
     
@@ -51,8 +50,10 @@
     </div>
     
     <div class="form-actions">
-        <button type="button" id="register-back-btn" class="btn btn-default">Back</button>
+        <a href="{{ url('/login') }}" class="btn btn-primary">Have Account? Login</a>
         <button type="submit" id="register-submit-btn" class="btn red uppercase pull-right">Submit</button>
     </div>
 
 </form>
+
+@stop

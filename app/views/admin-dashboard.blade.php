@@ -72,7 +72,7 @@
 @stop
 
 @section('footer')
-	<script src="{{ url('/scripts/Chart.bundle.min.js') }}" ></script>
+	<script src="{{ url('public/scripts/Chart.bundle.min.js') }}" ></script>
 	<script>
 		<?php
 		$labels= [];
@@ -97,7 +97,7 @@
 		}
 		?>
 		var ctx = document.getElementById("transaction-graph");
-		console.log(ctx);
+		
 		var data = {
 			labels: [{{ implode(',', $labels) }}],
 		    datasets: [

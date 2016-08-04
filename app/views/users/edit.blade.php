@@ -2,7 +2,7 @@
 
 
 @section('head')
-	<link href="{{ url('css/image-uploader.css') }}" rel="stylesheet" >
+	<link href="{{ url('public/css/image-uploader.css') }}" rel="stylesheet" >
 @stop
 
 @section('content')

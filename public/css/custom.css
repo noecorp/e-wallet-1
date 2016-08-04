@@ -62,13 +62,12 @@
 .font-lobster{
 	font-family: 'Lobster', cursive;
 }
-.home-navbar .navbar-brand{
+.home-navbar .navbar-brand,.admin-logo{
 	font-family: 'Lobster', cursive;
-}
-.home-navbar .navbar-brand {
 	color:#000;
 	font-size: 30px;
 }
+	
 
 .navbar-toggle{
 	color:#000 !important;
@@ -106,7 +105,7 @@
 
 }
 
-.big-tile .caption{
+.big-tile .caption,.p404-caption{
 	position: absolute;
 	top: 50%;
 	left:50%;
@@ -225,4 +224,17 @@
 	padding-bottom: 15px;
 	color:#fff;
 	font-size: 16px;
+}
+
+.p404{
+	height: 100%;
+}
+
+.p404-notfound{
+	font-size: 50px;
+}
+
+.login .logo{
+	margin-top: 150px;
+	text-align: center;
 }

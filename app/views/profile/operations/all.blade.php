@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('head')
-	<link href="{{ url('css/profile.css') }}" rel="stylesheet" >
+	<link href="{{ url('public/css/profile.css') }}" rel="stylesheet" >
 @stop
 
 @section('content')
@@ -34,6 +34,7 @@
 				</div><!-- end of portlet-title -->
 
 				<div class="portlet-body">
+					@include('profile.dates-form')
 					<div class="table-responsive">
 						<table class="table table-striped table-hover">
 							<thead>
@@ -60,7 +61,7 @@
 							</tbody>
 						</table>
 					</div><!-- end of table-reponsive -->
-					{{ $models->links() }}
+					@include('profile.pagination',['models'=>$models])
 				</div> <!-- end of portlet-body -->
 			</div>
 		</div>

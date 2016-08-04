@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('head')
-	<link href="{{ url('css/profile.css') }}" rel="stylesheet" >
+	<link href="{{ url('public/css/profile.css') }}" rel="stylesheet" >
 @stop
 
 @section('content')
@@ -14,12 +14,12 @@
 				<div class="portlet-title">
 					<div class="caption">
 						<i class="icon-cash font-green"></i>
-						<span class="caption-subject font-green bold uppercase">New Transaction</span>
+						<span class="caption-subject font-green bold uppercase">New Transfer</span>
 					</div>
 					<div class="actions">
 						<a href="{{ url('transactions') }}" class="btn btn-circle btn-default">
 							<i class="icon-cash"></i>
-							Previous Transactions
+							Previous Transfers
 						</a>
 					</div>
 				</div><!-- end of portlet-title -->
@@ -36,11 +36,11 @@
 
 						<div class="form-group">
 							<label for="" class="control-label">Value</label>
-							<input type="text" placeholder="Transaction value " name="value" class="form-control" value="{{ Input::old('value') }}">
+							<input type="text" placeholder="Transfer value " name="value" class="form-control" value="{{ Input::old('value') }}">
 						</div>
 
 						<div class="clearfix">
-							<button class="btn blue pull-right" type="submit">Make Transaction</button>
+							<button class="btn blue pull-right" type="submit">Make Transfer</button>
 						</div>
 					</form>
 

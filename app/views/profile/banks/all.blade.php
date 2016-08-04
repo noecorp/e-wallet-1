@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('head')
-	<link href="{{ url('css/profile.css') }}" rel="stylesheet" >
+	<link href="{{ url('public/css/profile.css') }}" rel="stylesheet" >
 @stop
 
 @section('content')
@@ -53,7 +53,7 @@
 										<td>
 											<div class="dropdown">
 											  	<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-											    	Dropdown
+											    	Actions
 											    	<span class="caret"></span>
 											  	</button>
 											  	<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">

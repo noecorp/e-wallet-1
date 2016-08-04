@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('head')
-	<link href="{{ url('css/profile.css') }}" rel="stylesheet" >
+	<link href="{{ url('public/css/profile.css') }}" rel="stylesheet" >
 @stop
 
 @section('content')
@@ -13,19 +13,20 @@
 				<div class="portlet-title">
 					<div class="caption">
 						<i class="icon-cash font-green"></i>
-						<span class="caption-subject font-green bold uppercase">Preview Previous Transaction</span>
+						<span class="caption-subject font-green bold uppercase">Preview Previous Transfers</span>
 					</div>
 					@if(Auth::user()->can('create-deposit',$user))
 					<div class="actions">
 						<a href="{{ url('transactions/new') }}" class="btn btn-circle btn-default">
 							<i class="icon-cash"></i>
-							New Transaction
+							New Transfers
 						</a>
 					</div>
 					@endif
 				</div><!-- end of portlet-title -->
 
 				<div class="portlet-body">
+					@include('profile.dates-form')
 					<div class="table-responsive">
 						<table class="table table-striped table-hover">
 							<thead>
@@ -34,7 +35,7 @@
 									<td>From User</td>
 									<td>Value</td>
 									<td>To User</td>
-									<td>Transaction Made At</td>
+									<td>Transfers Made At</td>
 								</tr>
 							</thead>
 							<tbody>
@@ -66,7 +67,7 @@
 							</tbody>
 						</table>
 					</div><!-- end of table-reponsive -->
-					{{ $models->links() }}
+					@include('profile.pagination',['models'=>$models])
 				</div> <!-- end of portlet-body -->
 			</div>
 		</div>

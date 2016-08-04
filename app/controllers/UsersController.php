@@ -35,7 +35,7 @@ class UsersController extends \BaseController {
 	public function store()
 	{
 		try{
-			User::createNew(Input::all(),false);
+			User::createNew(Input::all());
 		}catch(\Exception $e){
 			Flash::set($e->getMessage() ,'danger');	
 			return Redirect::back()->withInput();	
@@ -103,8 +103,12 @@ class UsersController extends \BaseController {
 			return Redirect::back();	
 		}
 
-		Flash::set("Saved Successfully",'success');	
-		return Redirect::to(url('/admin/users'));		
+		Flash::set("Saved Successfully",'success');
+		if(Auth::user()->isSuperAdmin()){
+			return Redirect::to(url('/admin/users'));		
+		}else{
+			return Redirect::back();		
+		}
 	}
 
 
@@ -167,7 +171,11 @@ class UsersController extends \BaseController {
 		$model->save();
 
 		Flash::set("Saved Successfully",'success');	
-		return Redirect::to(url('/admin/users'));		
+		if(Auth::user()->isSuperAdmin()){
+			return Redirect::to(url('/admin/users'));		
+		}else{
+			return Redirect::back();		
+		}
 	}
 
 

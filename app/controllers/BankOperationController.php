@@ -27,8 +27,21 @@ class BankOperationController extends \BaseController {
 		if(!$user){
 			App::abort(404);
 		}
+
+		$start_date = date('Y-m-01 00:00:00');
+		$end_date = date('Y-m-t 23:59:59');
+
+		if(isset( $_GET['start_date']) && $_GET['start_date'] ){
+			$start_date = date('Y-m-d 00:00:00',strtotime( $_GET['start_date'] ) );
+		}
+
+		if( isset( $_GET['end_date']) && $_GET['end_date'] ){
+			$end_date = date('Y-m-d 23:59:59',strtotime( $_GET['end_date'] ) );
+		}
+
+
 		
-		$models = $user->operations()->with('operationBank')->where('type',$type)->orderBy('created_at','desc')->paginate(20);
+		$models = $user->operations()->with('operationBank')->where('type',$type)->where('created_at','>=',$start_date)->where('created_at','<=',$end_date)->orderBy('created_at','desc')->paginate(20);
 
 		if($type == Operation::TYPE_WITHDRAWAL){
 			$title = 'All Withdrawals';
@@ -42,7 +55,9 @@ class BankOperationController extends \BaseController {
 			'user'=>$user,
 			'models' => $models,
 			'title' => $title,
-			'type' => $type
+			'type' => $type,
+			'start_date' => $start_date,
+			'end_date' => $end_date,
 		]);
 	}
 
@@ -94,7 +109,7 @@ class BankOperationController extends \BaseController {
 	public function createOperation($type){
 		$user = Auth::user();
 		$bank = Bank::find(Input::get('bank_id'));
-		if(!$user || !$bank){
+		if(!$user){
 			App::abort(404);
 		}
 

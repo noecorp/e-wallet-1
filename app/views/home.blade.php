@@ -7,11 +7,11 @@
 	<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
-	<link href="{{ url('plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ url('plugins/simple-line-icons/simple-line-icons.min.css') }} " rel="stylesheet" type="text/css" />
-    <link href="{{ url('plugins/bootstrap/css/bootstrap.min.css') }} " rel="stylesheet" type="text/css" />
+	<link href="{{ url('public/plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ url('public/plugins/simple-line-icons/simple-line-icons.min.css') }} " rel="stylesheet" type="text/css" />
+    <link href="{{ url('public/plugins/bootstrap/css/bootstrap.min.css') }} " rel="stylesheet" type="text/css" />
 	
-	<link href="{{url('css/custom.css') }}" rel="stylesheet" type="text/css" />
+	<link href="{{url('public/css/custom.css') }}" rel="stylesheet" type="text/css" />
 </head>
 <body class="home">
 	<nav class="navbar home-navbar">
@@ -41,6 +41,7 @@
 		<div class="caption">
 			<div class="big-logo">E-Wallet</div>
 			<p>A Simple Online Platform to Manage Your Online Money</p>
+			<br/>
 			<a href="#learn-more" rel="goToPanel"	 class="caption-btn">Learn More</a>
 		</div>
 	</div>
@@ -111,8 +112,8 @@
 		</div>
 	</footer>
 	
-	<script src="{{ url('plugins/jquery.min.js') }}" type="text/javascript"></script>
-    <script src="{{ url('plugins/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
-	<script src="{{ url('scripts/home.js') }}"></script>
+	<script src="{{ url('public/plugins/jquery.min.js') }}" type="text/javascript"></script>
+    <script src="{{ url('public/plugins/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
+	<script src="{{ url('public/scripts/home.js') }}"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('head')
-	<link href="{{ url('css/profile.css') }}" rel="stylesheet" >
+	<link href="{{ url('public/css/profile.css') }}" rel="stylesheet" >
 @stop
 
 @section('content')

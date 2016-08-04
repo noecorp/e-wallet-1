@@ -42,11 +42,16 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 		$rules = [];
 
-		if($this->scenario ==  'insert' || $this->scenario ==  'update'){
-			$rules = array_merge($rules ,[
+		if(in_array($this->scenario, array('insert','update','register') ) ){
+			$rules = array_merge($rules,[
 				'name' => 'required',
 				'phone' => 'required|numeric|unique:users,phone,'.$this->id,
 				'email' => 'required|email|unique:users,email,'.$this->id,
+			]);
+		}
+
+		if(in_array($this->scenario, array('insert','update')) ){
+			$rules = array_merge($rules ,[
 				'image' => 'required',
 			]);
 		}
@@ -84,16 +89,12 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return true;
 	}
 
-	public static function createNew($data,$uploadImage = true){
+	public static function createNew($data,$scenario = 'insert'){
 		$model = new self($data);
 
-		$model->isValid($data);
-		
-		if($uploadImage){
-			$image = AppHelpers::uploadImage(Input::file('image'));
-			$model->image = $image['id'];
-		}
+		$model->scenario = $scenario;
 
+		$model->isValid($data);
 
 		$model->password = Hash::make($model->password);
 		$model->role = 0;
@@ -141,9 +142,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     	}
     }
 
-    public function canMakeWithdrawal($value){
+    public function canMakeWithdrawal($value,$op = 'Withdrawal'){
     	if($value > $this->balance){
-    		throw new Exception('User Balance is less than '.$value);			
+    		throw new Exception('Cannot Make '.$op.' more than '.$this->balance);
     	}
     }
 

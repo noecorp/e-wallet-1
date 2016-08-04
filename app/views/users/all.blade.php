@@ -55,7 +55,7 @@
 							@foreach($models as $model)
 								<tr>
 									<td>{{ ++$count }}</td>
-									<td><img src="{{ AppHelpers::getImageUrl($model->featuredImage,75,75) }}" alt="{{ $model->name }}"></td>
+									<td><img width="75" height="75" src="{{ AppHelpers::getImageUrl($model->featuredImage,75,75) }}" alt="{{ $model->name }}"></td>
 									<td>{{ $model->account_id }}</td>
 									<td>{{ $model->name }}</td>
 									<td>{{ $model->email }}</td>
@@ -63,7 +63,7 @@
 									<td>
 										<div class="dropdown">
 										  	<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-										    	Dropdown
+										    	Actions
 										    	<span class="caret"></span>
 										  	</button>
 										  	<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">

@@ -43,5 +43,5 @@
 </div><!-- end of modal -->
 
 @section('footer')
-	<script src="{{ url( 'scripts/image-uploader.js' ) }}"></script>
+	<script src="{{ url( 'public/scripts/image-uploader.js' ) }}"></script>
 @stop

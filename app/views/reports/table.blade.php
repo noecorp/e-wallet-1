@@ -5,7 +5,7 @@ if($user->id != Auth::user()->id){
 }
 ?>
 
-<div class="table-reponsive">
+<div class="reponsive-table">
 	<table class="table table-hover table-striped">
 		<thead>
 			<tr>

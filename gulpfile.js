@@ -32,7 +32,6 @@ gulp.task('serve', function () {
 });
 
 gulp.task('livereload', function() {
-  gulp.start('serve');
 
   livereload({start: true});
 
@@ -76,4 +75,9 @@ gulp.task('livereload', function() {
       livereload.changed(larassetUrl + '/application.css');
     }
   });
+});
+
+gulp.task('watch',function(){
+    gulp.start('serve');
+    gulp.start('livereload');
 });

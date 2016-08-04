@@ -26,23 +26,24 @@ License: You must have a valid license purchased only from themeforest(the above
         <meta content="" name="author" />
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
-        <link href="{{ url('plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ url('plugins/simple-line-icons/simple-line-icons.min.css') }} " rel="stylesheet" type="text/css" />
-        <link href="{{ url('plugins/bootstrap/css/bootstrap.min.css') }} " rel="stylesheet" type="text/css" />
-        <link href="{{ url('plugins/uniform/css/uniform.default.css') }} " rel="stylesheet" type="text/css" />
-        <link href="{{ url('plugins/bootstrap-switch/css/bootstrap-switch.min.css') }} " rel="stylesheet" type="text/css" />
+        <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+
+        <link href="{{ url('public/plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ url('public/plugins/simple-line-icons/simple-line-icons.min.css') }} " rel="stylesheet" type="text/css" />
+        <link href="{{ url('public/plugins/bootstrap/css/bootstrap.min.css') }} " rel="stylesheet" type="text/css" />
+        <link href="{{ url('public/plugins/uniform/css/uniform.default.css') }} " rel="stylesheet" type="text/css" />
+        <link href="{{ url('public/plugins/bootstrap-switch/css/bootstrap-switch.min.css') }} " rel="stylesheet" type="text/css" />
         <!-- END GLOBAL MANDATORY STYLES -->
         <!-- BEGIN PAGE LEVEL PLUGINS -->
-        <link href="{{ url('plugins/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ url('plugins/select2/css/select2-bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ url('public/plugins/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ url('public/plugins/select2/css/select2-bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN THEME GLOBAL STYLES -->
-        <link href="{{url('css/components-md.min.css') }}" rel="stylesheet" id="style_components" type="text/css" />
-        <link href="{{url('css/plugins-md.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{url('public/css/components-md.min.css') }}" rel="stylesheet" id="style_components" type="text/css" />
+        <link href="{{url('public/css/plugins-md.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- END THEME GLOBAL STYLES -->
-        <!-- BEGIN PAGE LEVEL STYLES -->
-        <link href="{{ url('css/login-2.min.css') }}" rel="stylesheet" type="text/css" />
-        <!-- END PAGE LEVEL STYLES -->
+
+        <link href="{{url('public/css/custom.css') }}" rel="stylesheet" type="text/css" />
         <!-- BEGIN THEME LAYOUT STYLES -->
         <!-- END THEME LAYOUT STYLES -->
         <link rel="shortcut icon" href="favicon.ico" />
@@ -50,11 +51,11 @@ License: You must have a valid license purchased only from themeforest(the above
     </head>
     <!-- END HEAD -->
 
-    <body class=" login">
+    <body class="login">
         <!-- BEGIN LOGO -->
         <div class="logo">
             <h3>
-                <a href="{{ url('/signup') }}">
+                <a href="{{ url('/') }}" class="font-lobster admin-logo">
                     E-Wallet    
                 </a>
             </h3>

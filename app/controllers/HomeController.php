@@ -26,11 +26,23 @@ class HomeController extends BaseController {
 			$start_date = date('Y-m-01 00:00:00');
 			$end_date = date('Y-m-t 23:59:59');
 
-			$models = $user->operations()->where('user_id',$user->id)->where('created_at','>=',$start_date)->where('created_at','<=',$end_date)->orderBy('created_at','desc')->get();;
+			if(isset( $_GET['start_date']) && $_GET['start_date'] ){
+				$start_date = date('Y-m-d 00:00:00',strtotime( $_GET['start_date'] ) );
+			}
+
+			if( isset( $_GET['end_date']) && $_GET['end_date'] ){
+				$end_date = date('Y-m-d 23:59:59',strtotime( $_GET['end_date'] ) );
+			}
+
+
+			$models = $user->operations()->where('user_id',$user->id)->where('created_at','>=',$start_date)->where('created_at','<=',$end_date)->orderBy('created_at','desc')->paginate(20);
+			
 			return View::make('profile.index',[
 				'title' => "Dashbaord",
 				'user'=>$user,
-				'models' => $models
+				'models' => $models,
+				'start_date' => $start_date,
+				'end_date' => $end_date,
 			]);
 		}
 

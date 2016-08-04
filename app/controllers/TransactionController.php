@@ -19,11 +19,23 @@ class TransactionController extends \BaseController {
 			App::abort(404);
 		}
 		
+		$start_date = date('Y-m-01 00:00:00');
+		$end_date = date('Y-m-t 23:59:59');
+
+		if(isset( $_GET['start_date']) && $_GET['start_date'] ){
+			$start_date = date('Y-m-d 00:00:00',strtotime( $_GET['start_date'] ) );
+		}
+
+		if( isset( $_GET['end_date']) && $_GET['end_date'] ){
+			$end_date = date('Y-m-d 23:59:59',strtotime( $_GET['end_date'] ) );
+		}
+
 		$models = $user->operations()->where(function($query)
             {
                 $query->where('type', '=', Operation::TYPE_TRANSACTION_IN)
                       ->orWhere('type', '=', Operation::TYPE_TRANSACTION_OUT);
-            })->orderBy('created_at','desc')->paginate(20);
+            })->where('created_at','>=',$start_date)->where('created_at','<=',$end_date)
+			->orderBy('created_at','desc')->paginate(20);
 
 		// $queries = DB::getQueryLog();
 		// $last_query = end($queries);
@@ -35,6 +47,8 @@ class TransactionController extends \BaseController {
 			'user' => $user,
 			'models' => $models,
 			'title' => 'All Transactions',
+			'start_date' => $start_date,
+			'end_date' => $end_date,
 			]);
 	}
 
@@ -83,7 +97,7 @@ class TransactionController extends \BaseController {
 			
 			$value = Input::get('value');
 
-			$user->canMakeWithdrawal($value);
+			$user->canMakeWithdrawal($value,'Transfer');
 			$model->createNew($value, Operation::TYPE_TRANSACTION_OUT);
 
 			$modelTargetUser = new Transaction();

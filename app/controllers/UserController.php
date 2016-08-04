@@ -9,8 +9,13 @@ class UserController extends \BaseController {
 	 */
 	public function index()
 	{
-		// Flash::set("new message",'success');
 		return View::make('user.login', ['title' => 'Login']);	
+	}
+
+	public function signup()
+	{
+		// Flash::set("new message",'success');
+		return View::make('user.signup', ['title' => 'Login']);	
 	}
 
 
@@ -22,9 +27,10 @@ class UserController extends \BaseController {
 	public function create()
 	{
 		try{
-			User::createNew(Input::all());
+			User::createNew(Input::all(),'register');
 		}catch(\Exception $e){
-			Flash::set(AppHelpers::errorSummary($e->getMessages()) ,'danger');	
+			Flash::set($e->getMessage() ,'danger');	
+			return Redirect::to(url('/signup'));	
 		}
 		
 		

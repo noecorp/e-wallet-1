@@ -1,18 +1,19 @@
 <div class="col-md-4">
 	<div class="portlet light profile-sidebar-portlet bordered">
 	    <div class="profile-userpic">
-	        <img src="{{ AppHelpers::getImageUrl($user->featuredImage,150,150) }}" class="img-responsive" alt="{{ $user->name }}">
+	        <img src="{{ AppHelpers::getImageUrl($user->featuredImage,150,150) }}" class="img-responsive" alt="{{ $user->name }}" width="150" height="150">
 	    </div>
 	    
 	    <div class="profile-usertitle">
 	        <div class="profile-usertitle-name"> {{ $user->name  }} </div>
-	        <div class="profile-usertitle-job"> {{ $user->balance.'$' }} </div>
+	        <div class="profile-usertitle-account_id"> Account ID: {{ $user->account_id}} </div>
+	        <div class="profile-usertitle-job"> {{ $user->balance.' $' }} </div>
 	    </div>
 	    <!-- END SIDEBAR USER TITLE -->
 	    <!-- SIDEBAR BUTTONS -->
 	    @if((Auth::user()->role == 1 && Auth::user()-> id != $user->id) || ( Auth::user()->role == 0 || $user->id == Auth::user()->id ) )
 	        <div class="profile-userbuttons">
-	            <button type="submit" class="btn ``btn-circle red btn-sm">Delete</a>
+	            <a href="{{ AppHelpers::joinPaths( AppHelpers::generateUserProfileLink($user->id),'settings' ); }}" class="btn btn-circle green btn-sm">Settings</a>
 	        </div>
 	    @endif
 	    <!-- END SIDEBAR BUTTONS -->
@@ -50,7 +51,7 @@
 	            </li>
 	            <li>
 	                <a href="{{ AppHelpers::joinPaths( AppHelpers::generateUserProfileLink($user->id),'transactions' ); }}">
-	                    <i class="icon-directions"></i> Transactions
+	                    <i class="icon-directions"></i> Transfers
 	                </a>
 	            </li>
 	        </ul>

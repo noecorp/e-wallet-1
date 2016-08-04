@@ -14,23 +14,25 @@
 
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
-        <link href="{{ url('plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ url('plugins/simple-line-icons/simple-line-icons.min.css') }} " rel="stylesheet" type="text/css" />
-        <link href="{{ url('plugins/bootstrap/css/bootstrap.min.css') }} " rel="stylesheet" type="text/css" />
-        <link href="{{ url('plugins/uniform/css/uniform.default.css') }} " rel="stylesheet" type="text/css" />
-        <link href="{{ url('plugins/bootstrap-switch/css/bootstrap-switch.min.css') }} " rel="stylesheet" type="text/css" />
-        <link href="{{ url('plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }} " rel="stylesheet" type="text/css" />
-        <link href="{{ url('plugins/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ url('plugins/select2/css/select2-bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+
+        <link href="{{ url('public/plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ url('public/plugins/simple-line-icons/simple-line-icons.min.css') }} " rel="stylesheet" type="text/css" />
+        <link href="{{ url('public/plugins/bootstrap/css/bootstrap.min.css') }} " rel="stylesheet" type="text/css" />
+        <link href="{{ url('public/plugins/uniform/css/uniform.default.css') }} " rel="stylesheet" type="text/css" />
+        <link href="{{ url('public/plugins/bootstrap-switch/css/bootstrap-switch.min.css') }} " rel="stylesheet" type="text/css" />
+        <link href="{{ url('public/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }} " rel="stylesheet" type="text/css" />
+        <link href="{{ url('public/plugins/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ url('public/plugins/select2/css/select2-bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- END GLOBAL MANDATORY STYLES -->
         <!-- BEGIN THEME GLOBAL STYLES -->
-        <link href="{{url('css/components-md.min.css') }}" rel="stylesheet" id="style_components" type="text/css" />
-        <link href="{{url('css/plugins-md.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{url('public/css/components-md.min.css') }}" rel="stylesheet" id="style_components" type="text/css" />
+        <link href="{{url('public/css/plugins-md.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- END THEME GLOBAL STYLES -->
         <!-- BEGIN THEME LAYOUT STYLES -->
-        <link href="{{url('css/layout.min.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{url('css/themes/light.min.css') }}" rel="stylesheet" type="text/css" id="style_color" />
-        <link href="{{url('css/custom.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{url('public/css/layout.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{url('public/css/themes/light.min.css') }}" rel="stylesheet" type="text/css" id="style_color" />
+        <link href="{{url('public/css/custom.css') }}" rel="stylesheet" type="text/css" />
         <!-- END THEME LAYOUT STYLES -->
         <link rel="shortcut icon" href="favicon.ico" />
         
@@ -44,7 +46,7 @@
 				
 				<div class="page-logo">
                     <h3>
-                    	<a href="{{ url('/') }}">
+                    	<a href="{{ url('/') }}" class="font-lobster admin-logo" style="padding-left: 0px">
 	                        E-Wallet
 	                    </a>
                     </h3>
@@ -57,24 +59,14 @@
                 
                 <div class="page-top">
                     <!-- BEGIN HEADER SEARCH BOX -->
-                    <!-- DOC: Apply "search-form-expanded" right after the "search-form" class to have half expanded search box -->
-                    <form class="search-form" action="page_general_search_2.html" method="GET">
-                        <div class="input-group">
-                            <input type="text" class="form-control input-sm" placeholder="Search..." name="query">
-                            <span class="input-group-btn">
-                                <a href="javascript:;" class="btn submit">
-                                    <i class="icon-magnifier"></i>
-                                </a>
-                            </span>
-                        </div>
-                    </form>
+    
                     <div class="top-menu">
 						<ul class="nav navbar-nav pull-right">
 							<li class="dropdown dropdown-user dropdown-dark">
                                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                                     <span class="username username-hide-on-mobile"> {{ Auth::user()->name }} </span>
                                     <!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->
-                                    <img alt="" class="img-circle" src="{{ AppHelpers::getImageUrl(Auth::user()->featuredImage,40,40) }}" />
+                                    <img alt="" class="img-circle" src="{{ AppHelpers::getImageUrl(Auth::user()->featuredImage,40,40) }}" width="40" height="40" />
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-default">
                                     <li>
@@ -119,26 +111,26 @@
             </div><!-- end of page-content-wrapper -->
        	</div><!-- end of page-container -->
 		
-		<script src="{{ url('plugins/jquery.min.js') }}" type="text/javascript"></script>
-        <script src="{{ url('plugins/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
-        <script src="{{ url('plugins/js.cookie.min.js') }}" type="text/javascript"></script>
-        <script src="{{ url('plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js') }}" type="text/javascript"></script>
-        <script src="{{ url('plugins/jquery-slimscroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
-        <script src="{{ url('plugins/jquery.blockui.min.js') }}" type="text/javascript"></script>
-        <script src="{{ url('plugins/uniform/jquery.uniform.min.js') }}" type="text/javascript"></script>
-        <script src="{{ url('plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}" type="text/javascript"></script>
-        <script src="{{ url('plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}" type="text/javascript"></script>
-        <script src="{{ url('plugins/select2/js/select2.full.min.js') }}" type="text/javascript"></script>
+		<script src="{{ url('public/plugins/jquery.min.js') }}" type="text/javascript"></script>
+        <script src="{{ url('public/plugins/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
+        <script src="{{ url('public/plugins/js.cookie.min.js') }}" type="text/javascript"></script>
+        <script src="{{ url('public/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js') }}" type="text/javascript"></script>
+        <script src="{{ url('public/plugins/jquery-slimscroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
+        <script src="{{ url('public/plugins/jquery.blockui.min.js') }}" type="text/javascript"></script>
+        <script src="{{ url('public/plugins/uniform/jquery.uniform.min.js') }}" type="text/javascript"></script>
+        <script src="{{ url('public/plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}" type="text/javascript"></script>
+        <script src="{{ url('public/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}" type="text/javascript"></script>
+        <script src="{{ url('public/plugins/select2/js/select2.full.min.js') }}" type="text/javascript"></script>
         <!-- END CORE PLUGINS -->
         <!-- BEGIN THEME GLOBAL SCRIPTS -->
-        <script src="{{ url('scripts/app.min.js') }}" type="text/javascript"></script>
+        <script src="{{ url('public/scripts/app.min.js') }}" type="text/javascript"></script>
         <!-- END THEME GLOBAL SCRIPTS -->
         <!-- BEGIN THEME LAYOUT SCRIPTS -->
-        <script src="{{ url('scripts/layout.min.js') }}" type="text/javascript"></script>
-        <script src="{{ url('scripts/demo.min.js') }}" type="text/javascript"></script>
+        <script src="{{ url('public/scripts/layout.min.js') }}" type="text/javascript"></script>
+        <script src="{{ url('public/scripts/demo.min.js') }}" type="text/javascript"></script>
         {{-- <script src="../assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script> --}}
         
-        <script src="{{ url('scripts/script.js') }}"></script>
+        <script src="{{ url('public/scripts/script.js') }}"></script>
 
         @yield('footer')
 

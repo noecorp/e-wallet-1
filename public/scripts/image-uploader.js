@@ -1,7 +1,7 @@
 'use strict'
 
 jQuery(document).ready(function($){
-	
+	var host = 'http://localhost/e_wallet/';	
 	var imageUploader = {
 		//objects for containers user in the modal
 		modal : $('#image-upload-modal'),
@@ -23,7 +23,7 @@ jQuery(document).ready(function($){
 		UploadedImageContainer : function(originalName,newName,extension,id){
 			var item = '<li>';
 			item += '<a href="#" class="uploaded-image" data-id="'+id+'" data-new-name="'+newName+'.'+extension+'">';
-			item += '<img src="/uploads/'+newName+'-125-125.'+extension+'" alt="'+originalName+'" />';
+			item += '<img src="'+host+'public/uploads/'+newName+'-125-125.'+extension+'" alt="'+originalName+'" />';
 			item += '</a>';
 			item += '</li>';
 
@@ -42,7 +42,7 @@ jQuery(document).ready(function($){
 		},
 		getImages : function(){
 			$.ajax({
-				url: '/files?page='+iu.currentPage,
+				url: host+'files?page='+iu.currentPage,
 				type : 'get',
 				beforeSend: function(){
 					var loader = '<li class="loader"><i class="fa fa-spin fa-spinner"></i></li>';
@@ -158,7 +158,7 @@ jQuery(document).ready(function($){
 				var id = imageContainer.attr('data-id');
 				var parent = iu.launcherInstance.parent().parent();
 				console.log(parent.find('.choosen-image').attr('src'));
-				parent.find('.choosen-image').attr('src','http://localhost:8000/uploads/'+image).load().show();
+				parent.find('.choosen-image').attr('src',host+'public/uploads/'+image).load().show();
 				parent.find('.choosen-image-id').val(id);
 				iu.modal.modal('hide');
 			});

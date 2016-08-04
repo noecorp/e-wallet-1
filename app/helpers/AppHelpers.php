@@ -35,7 +35,7 @@ class AppHelpers{
 
 	public static function getImageUrl($image,$width = null , $height = null){
 		if(!$image){
-            return false;
+            return url('public/img/default_avatar_male.jpg');
         }
 
         if(!is_null($width) && !is_null($height)){
@@ -45,9 +45,9 @@ class AppHelpers{
                 $img->resize($width, $height);
                 $img->save( public_path( 'uploads/'.$filename ) );
             }
-            return url('uploads/'.$filename);
+            return url('public/uploads/'.$filename);
         }
-        return url('uploads/'.$image->new_name.'.'.$image->extension);
+        return url('public/uploads/'.$image->new_name.'.'.$image->extension);
 	}
 
 	public static function errorSummary($messages){
@@ -76,7 +76,7 @@ class AppHelpers{
 
 	public static function imageUploadInput($name,$value = '',$image=null){
 		if(is_null($image)){
-			$image = url('img/default_avatar_male.jpg');
+			$image = url('public/img/default_avatar_male.jpg');
 		}
 
 		$html = '
@@ -85,7 +85,7 @@ class AppHelpers{
             	<img src="'.$image.'" class="choosen-image" width="125" height="125" alt="">
             </div>
             <div class="btn-group image-btns">
-            	<button class="btn btn-danger delete-image" data-default="'.url('img/default_avatar_male.jpg').'" type="button"><i class="fa fa-times"></i></button>
+            	<button class="btn btn-danger delete-image" data-default="'.url('public/img/default_avatar_male.jpg').'" type="button"><i class="fa fa-times"></i></button>
             	<button class="btn btn-primary upload-image" type="button" data-toggle="modal" data-target="#image-upload-modal"><i class="fa fa-folder"></i></button>
             </div>
 		';
